@@ -1,0 +1,116 @@
+<article class="page home-page">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <h1 id="hero-title">Navigating the digital landscape for success</h1>
+      <p>
+        Our digital marketing agency helps businesses grow with SEO, PPC, social media,
+        content, email, and analytics that stay tied to revenue.
+      </p>
+      <a class="primary-button" routerLink="/quote">Book a consultation</a>
+    </div>
+
+    <div class="hero-visual">
+      <img src="/assets/hero-megaphone.svg" alt="A megaphone sending bright campaign signals" />
+    </div>
+  </section>
+
+  <section class="partners" aria-label="Trusted by">
+    @for (partner of partners; track partner) {
+      <span>{{ partner }}</span>
+    }
+  </section>
+
+  <section class="page-section" id="services">
+    <div class="section-heading">
+      <h2><span class="section-kicker">Services</span></h2>
+      <p>
+        At our digital marketing agency, we offer a range of services to help businesses
+        grow and succeed online.
+      </p>
+    </div>
+
+    <div class="service-grid">
+      @for (service of services; track service.title) {
+        <article
+          class="service-card"
+          [class.tone-light]="service.tone === 'light'"
+          [class.tone-green]="service.tone === 'green'"
+          [class.tone-dark]="service.tone === 'dark'"
+        >
+          <div>
+            <h3><span>{{ service.title }}</span></h3>
+            <p>{{ service.description }}</p>
+            <a class="text-link" routerLink="/services">Learn more</a>
+          </div>
+          <img [src]="service.image" [alt]="service.title + ' illustration'" />
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div>
+      <h2>Let us make things happen</h2>
+      <p>
+        Contact us today to learn more about how our digital marketing services can help
+        your business grow and succeed online.
+      </p>
+      <a class="primary-button" routerLink="/quote">Get your free proposal</a>
+    </div>
+    <img src="/assets/quote-illustration.svg" alt="Bright starburst over a planning desk" />
+  </section>
+
+  <section class="page-section">
+    <div class="section-heading">
+      <h2><span class="section-kicker">Case Studies</span></h2>
+      <p>Examples of digital marketing work connected to measurable business outcomes.</p>
+    </div>
+
+    <div class="case-strip">
+      @for (item of cases; track item) {
+        <article>
+          <p>{{ item }}</p>
+          <a routerLink="/use-cases">Learn more</a>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="section-heading">
+      <h2><span class="section-kicker">Our Working Process</span></h2>
+      <p>Step-by-step guidance from first audit to continuous optimization.</p>
+    </div>
+
+    <div class="process-list">
+      @for (item of process; track item.step; let first = $first) {
+        <details [open]="first">
+          <summary>
+            <span>{{ item.step }}</span>
+            <strong>{{ item.title }}</strong>
+          </summary>
+          <p>{{ item.body }}</p>
+        </details>
+      }
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="section-heading">
+      <h2><span class="section-kicker">Testimonials</span></h2>
+      <p>What clients say after the first few growth cycles.</p>
+    </div>
+
+    <div class="testimonial-panel">
+      @for (testimonial of testimonials; track testimonial.name) {
+        <figure>
+          <blockquote>{{ testimonial.quote }}</blockquote>
+          <figcaption>
+            <strong>{{ testimonial.name }}</strong>
+            <span>{{ testimonial.role }}</span>
+          </figcaption>
+        </figure>
+      }
+    </div>
+  </section>
+</article>

@@ -1,0 +1,83 @@
+.pricing-grid {
+  align-items: stretch;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.price-card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.5rem;
+  padding: 1.6rem;
+}
+
+.price-card.featured {
+  background: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.plan-name {
+  background: var(--color-lime);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  display: inline-flex;
+  font-weight: 800;
+  margin: 0 0 1rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.price-card h2 {
+  font-size: 2.6rem;
+  line-height: 1;
+  margin: 0 0 0.7rem;
+}
+
+.price-card h2 span {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.price-card p {
+  line-height: 1.5;
+  margin: 0;
+}
+
+.price-card ul {
+  border-top: 1px solid var(--color-line);
+  display: grid;
+  gap: 0.7rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 1.2rem 0 0 1.2rem;
+}
+
+.featured ul {
+  border-color: #4b504d;
+}
+
+.pricing-note {
+  background: var(--color-lime);
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.pricing-note h2 {
+  font-size: 2rem;
+  margin: 0 0 0.6rem;
+}
+
+.pricing-note p {
+  line-height: 1.6;
+  margin: 0 0 1.2rem;
+  max-width: 44rem;
+}
+
+@media (max-width: 900px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}

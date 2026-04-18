@@ -1,0 +1,122 @@
+.post-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.post-card {
+  background: var(--color-soft);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1rem;
+  padding: 1.6rem;
+}
+
+.post-card:nth-child(2) {
+  background: var(--color-lime);
+}
+
+.post-card p {
+  background: var(--color-paper);
+  border-radius: var(--radius);
+  display: inline-flex;
+  font-weight: 800;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+  width: fit-content;
+}
+
+.post-card h2 {
+  font-size: 1.45rem;
+  line-height: 1.18;
+  margin: 0;
+}
+
+.post-card span {
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.team-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.team-card {
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 0 var(--color-ink);
+  display: grid;
+  gap: 1rem;
+  padding: 1.35rem;
+}
+
+.team-card header {
+  align-items: center;
+  border-bottom: 1px solid var(--color-line);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 5rem 1fr;
+  padding-bottom: 1rem;
+}
+
+.team-card img {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  object-fit: cover;
+  width: 5rem;
+}
+
+.team-card h3 {
+  font-size: 1.25rem;
+  margin: 0 0 0.25rem;
+}
+
+.team-card p {
+  color: var(--color-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.newsletter-band {
+  align-items: center;
+  background: var(--color-ink);
+  color: var(--color-paper);
+  display: flex;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.newsletter-band h2 {
+  font-size: 2rem;
+  margin: 0 0 0.45rem;
+}
+
+.newsletter-band p {
+  color: #dfe5e2;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .post-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .newsletter-band {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 520px) {
+  .team-card header {
+    grid-template-columns: 1fr;
+  }
+}

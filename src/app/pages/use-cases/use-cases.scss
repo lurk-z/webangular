@@ -1,0 +1,88 @@
+.case-list {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.case-card {
+  background: var(--color-ink);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  color: var(--color-paper);
+  display: grid;
+  gap: 1rem;
+  padding: 1.6rem;
+}
+
+.case-card:nth-child(2) {
+  background: var(--color-lime);
+  color: var(--color-ink);
+}
+
+.case-card h2 {
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.case-card p {
+  line-height: 1.55;
+  margin: 0;
+}
+
+.case-card .client {
+  color: var(--color-lime);
+  font-weight: 800;
+}
+
+.case-card:nth-child(2) .client {
+  color: var(--color-ink);
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: auto;
+}
+
+.tag-row span {
+  background: var(--color-paper);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.55rem;
+}
+
+.next-step {
+  align-items: center;
+  background: var(--color-soft);
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-top: 4rem;
+  padding: 2rem;
+}
+
+.next-step h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+}
+
+.next-step p {
+  color: var(--color-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .case-list {
+    grid-template-columns: 1fr;
+  }
+
+  .next-step {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

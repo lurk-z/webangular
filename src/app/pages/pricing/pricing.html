@@ -1,0 +1,38 @@
+<article class="page">
+  <header class="page-title">
+    <h1>Pricing that matches the stage of your growth</h1>
+    <p>
+      Start with a focused sprint or build a complete channel system. Every plan can be
+      adjusted after the first strategy session.
+    </p>
+  </header>
+
+  <section class="pricing-grid" aria-label="Pricing plans">
+    @for (plan of plans; track plan.name) {
+      <article class="price-card" [class.featured]="plan.featured">
+        <div>
+          <p class="plan-name">{{ plan.name }}</p>
+          <h2>{{ plan.price }}<span>/mo</span></h2>
+          <p>{{ plan.note }}</p>
+        </div>
+        <ul>
+          @for (feature of plan.features; track feature) {
+            <li>{{ feature }}</li>
+          }
+        </ul>
+        <a [class]="plan.featured ? 'lime-button' : 'primary-button'" routerLink="/quote">
+          Choose {{ plan.name }}
+        </a>
+      </article>
+    }
+  </section>
+
+  <section class="pricing-note">
+    <h2>Need a custom scope?</h2>
+    <p>
+      We can quote one-off audits, launch builds, or ongoing retainers based on your team,
+      channels, and target pace.
+    </p>
+    <a class="text-link" routerLink="/quote">Tell us about the project</a>
+  </section>
+</article>

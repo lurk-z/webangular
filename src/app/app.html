@@ -1,0 +1,46 @@
+<header class="site-header" aria-label="Primary navigation">
+  <a class="brand" routerLink="/" aria-label="Positivus home">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <span>Positivus</span>
+  </a>
+
+  <nav class="main-nav">
+    @for (link of navLinks; track link.path) {
+      <a
+        [routerLink]="link.path"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: link.path === '/' }"
+      >
+        {{ link.label }}
+      </a>
+    }
+  </nav>
+
+  <a class="outline-button" routerLink="/quote">Request a quote</a>
+</header>
+
+<main>
+  <router-outlet />
+</main>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <a class="brand brand-footer" routerLink="/" aria-label="Positivus home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span>Positivus</span>
+    </a>
+    <p>Digital marketing built around useful growth, clean reporting, and steady execution.</p>
+  </div>
+
+  <div class="footer-links" aria-label="Footer navigation">
+    @for (link of navLinks; track link.path) {
+      <a [routerLink]="link.path">{{ link.label }}</a>
+    }
+    <a routerLink="/quote">Request a quote</a>
+  </div>
+
+  <div class="footer-bottom">
+    <span>Copyright {{ currentYear }} Positivus</span>
+    <span>hello@positivus.studio</span>
+  </div>
+</footer>

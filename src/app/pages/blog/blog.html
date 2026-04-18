@@ -1,0 +1,52 @@
+<article class="page">
+  <header class="page-title">
+    <h1><span class="highlight">Insights</span> and team notes for sharper growth decisions</h1>
+    <p>
+      Short, practical reads from the team that plans, launches, and improves digital
+      marketing programs every week.
+    </p>
+  </header>
+
+  <section class="post-grid" aria-label="Latest articles">
+    @for (post of posts; track post.title) {
+      <article class="post-card">
+        <p>{{ post.category }}</p>
+        <h2>{{ post.title }}</h2>
+        <span>{{ post.excerpt }}</span>
+        <a class="text-link" routerLink="/quote">Discuss this topic</a>
+      </article>
+    }
+  </section>
+
+  <section class="page-section">
+    <div class="section-heading">
+      <h2><span class="section-kicker">Team</span></h2>
+      <p>
+        A compact team with channel specialists, project rhythm, and reporting discipline.
+      </p>
+    </div>
+
+    <div class="team-grid" aria-label="Team members">
+      @for (member of team; track member.name) {
+        <article class="team-card">
+          <header>
+            <img [src]="member.image" [alt]="member.name + ' profile illustration'" />
+            <div>
+              <h3>{{ member.name }}</h3>
+              <p>{{ member.role }}</p>
+            </div>
+          </header>
+          <p>{{ member.bio }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="newsletter-band">
+    <div>
+      <h2>Want a sharper first sprint?</h2>
+      <p>Send the context once, and we will bring back a practical campaign plan.</p>
+    </div>
+    <a class="primary-button" routerLink="/quote">Request a quote</a>
+  </section>
+</article>

@@ -1,0 +1,132 @@
+<article class="page quote-page">
+  <header class="page-title">
+    <h1>Request a quote for your next growth sprint</h1>
+    <p>
+      Share the essentials once so we can shape a clear first sprint around your goals,
+      budget, and timeline.
+    </p>
+  </header>
+
+  <section class="quote-layout">
+    <form #quoteForm="ngForm" class="quote-form" (ngSubmit)="submitQuote(quoteForm)" novalidate>
+      <div class="field-grid">
+        <label>
+          <span>Full name</span>
+          <input
+            #fullName="ngModel"
+            type="text"
+            name="fullName"
+            [(ngModel)]="model.fullName"
+            autocomplete="name"
+            required
+            minlength="2"
+          />
+          @if (formWasSubmitted && fullName.invalid) {
+            <small>Please enter your name.</small>
+          }
+        </label>
+
+        <label>
+          <span>Email</span>
+          <input
+            #email="ngModel"
+            type="email"
+            name="email"
+            [(ngModel)]="model.email"
+            autocomplete="email"
+            required
+            email
+          />
+          @if (formWasSubmitted && email.invalid) {
+            <small>Please enter a valid email.</small>
+          }
+        </label>
+      </div>
+
+      <label>
+        <span>Company</span>
+        <input
+          #company="ngModel"
+          type="text"
+          name="company"
+          [(ngModel)]="model.company"
+          autocomplete="organization"
+          required
+        />
+        @if (formWasSubmitted && company.invalid) {
+          <small>Please enter your company name.</small>
+        }
+      </label>
+
+      <div class="field-grid">
+        <label>
+          <span>Primary service</span>
+          <select name="service" [(ngModel)]="model.service" required>
+            @for (service of services; track service) {
+              <option [value]="service">{{ service }}</option>
+            }
+          </select>
+        </label>
+
+        <label>
+          <span>Monthly budget</span>
+          <select name="budget" [(ngModel)]="model.budget" required>
+            @for (budget of budgets; track budget) {
+              <option [value]="budget">{{ budget }}</option>
+            }
+          </select>
+        </label>
+      </div>
+
+      <label>
+        <span>Timeline</span>
+        <select name="timeline" [(ngModel)]="model.timeline" required>
+          @for (timeline of timelines; track timeline) {
+            <option [value]="timeline">{{ timeline }}</option>
+          }
+        </select>
+      </label>
+
+      <label>
+        <span>What should we know?</span>
+        <textarea
+          #message="ngModel"
+          name="message"
+          [(ngModel)]="model.message"
+          rows="6"
+          required
+          minlength="12"
+        ></textarea>
+        @if (formWasSubmitted && message.invalid) {
+          <small>Please add at least a sentence about the project.</small>
+        }
+      </label>
+
+      <button class="primary-button" type="submit">Submit request</button>
+    </form>
+
+    <aside class="quote-aside">
+      <img src="/assets/quote-illustration.svg" alt="Planning desk with a bright campaign mark" />
+      <h2>What happens next</h2>
+      <ol>
+        <li>We review the channel, budget, timeline, and notes you sent.</li>
+        <li>You receive a practical first-sprint recommendation.</li>
+        <li>Once the scope is approved, implementation can start.</li>
+      </ol>
+    </aside>
+  </section>
+
+  @if (lastSubmission) {
+    <section class="submission-result" aria-live="polite">
+      <p>Request submitted</p>
+      <h2>{{ lastSubmission.id }}</h2>
+      <span>
+        Thanks, {{ lastSubmission.fullName }}. Your {{ lastSubmission.service }} request
+        for {{ lastSubmission.company }} has been saved.
+      </span>
+      @if (storageWarning) {
+        <small>{{ storageWarning }}</small>
+      }
+    </section>
+  }
+</article>

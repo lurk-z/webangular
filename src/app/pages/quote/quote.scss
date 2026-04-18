@@ -1,0 +1,125 @@
+.quote-layout {
+  align-items: start;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.42fr);
+}
+
+.quote-form {
+  background: var(--color-soft);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 1.15rem;
+  padding: 1.6rem;
+}
+
+.field-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+label {
+  display: grid;
+  gap: 0.45rem;
+}
+
+label span {
+  font-weight: 800;
+}
+
+input,
+select,
+textarea {
+  background: var(--color-paper);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  color: var(--color-ink);
+  min-height: 3rem;
+  padding: 0.78rem 0.85rem;
+  width: 100%;
+}
+
+textarea {
+  line-height: 1.55;
+  resize: vertical;
+}
+
+small {
+  color: #9a2f25;
+  font-weight: 700;
+}
+
+.quote-aside {
+  background: var(--color-lime);
+  border: 1px solid var(--color-ink);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 0 var(--color-ink);
+  padding: 1.4rem;
+}
+
+.quote-aside img {
+  aspect-ratio: 1.15;
+  margin: 0 auto 1rem;
+  object-fit: contain;
+  width: min(100%, 17rem);
+}
+
+.quote-aside h2 {
+  font-size: 1.7rem;
+  margin: 0 0 1rem;
+}
+
+.quote-aside ol {
+  display: grid;
+  gap: 0.8rem;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.submission-result {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  margin-top: 2rem;
+  padding: 1.5rem;
+}
+
+.submission-result p {
+  color: var(--color-lime);
+  font-weight: 800;
+  margin: 0 0 0.35rem;
+}
+
+.submission-result h2 {
+  font-size: 2rem;
+  margin: 0 0 0.65rem;
+}
+
+.submission-result span {
+  display: block;
+  line-height: 1.55;
+}
+
+.submission-result small {
+  color: #ffd6cf;
+  display: block;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .quote-layout,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .quote-form,
+  .quote-aside,
+  .submission-result {
+    padding: 1.15rem;
+  }
+}

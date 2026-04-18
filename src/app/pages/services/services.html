@@ -1,0 +1,26 @@
+<article class="page">
+  <header class="page-title">
+    <h1><span class="highlight">Services</span> that connect marketing work to revenue</h1>
+    <p>
+      Choose one channel or combine the full growth system. Every service includes planning,
+      execution, measurement, and monthly decisions.
+    </p>
+  </header>
+
+  <section class="service-stack" aria-label="Available services">
+    @for (service of services; track service.name; let index = $index) {
+      <article class="service-row" [class.reverse]="index % 2 === 1">
+        <img [src]="service.image" [alt]="service.name + ' visual'" />
+        <div>
+          <h2>{{ service.name }}</h2>
+          <ul>
+            @for (bullet of service.bullets; track bullet) {
+              <li>{{ bullet }}</li>
+            }
+          </ul>
+          <a class="text-link" routerLink="/quote">Start with this service</a>
+        </div>
+      </article>
+    }
+  </section>
+</article>
